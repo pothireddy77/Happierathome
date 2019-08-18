@@ -1,27 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<h3>
-    Congratulations on taking first step! Which of these following official, legal
-    documents does your loved on have in place? If the answer is "no" for all, you're
-    not alone. We'll help you later with what you need.
-</h3>
-
-@model List<HappierAtHome.Models.Query>
-
-<table>
-    @{ int count = 0; }
-    @foreach (var query in Model)
-    {
-        <tr>
-            <td>
-                <li>@Html.DisplayFor(m => query.Question)</li>
-            </td>
-            <td width="100">
-                <input name="query[@count].SelectedAnswer" type="radio" value="No" @if (query.SelectedAnswer == "No") { <text> checked="checked" </text> } /> No
-                <input name="query[@count].SelectedAnswer" type="radio" value="Yes" @if (query.SelectedAnswer == "Yes") { <text> checked="checked" </text> } /> Yes
-            </td>
-        </tr>
-        count++;
-    }
-</table>
+        <a href="@Url.Action("Index", "legal")" title="List View" class="links">
+            <table>
+                <tr>
+                    <td>
+                        <img alt="Legal" src="@Url.Content("~/Content/Images/LegalIcon.png")" width="250" , height="250">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Legal
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="@Url.Action("Index", "homesafety")" title="List View" class="links">
+            <table>
+                <tr>
+                    <td>
+                        <img alt="Home Safety" src="@Url.Content("~/Content/Images/HomeSafetyIcon.png")" width="250" , height="250">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Home Safety
+                    </td>
+                </tr>
+            </table>
+        </a>
